@@ -1,0 +1,19 @@
+[Unit]
+Description=Start Grafana as sestemd service
+After=docker.service
+Requires=docker.service
+[Service]
+Restart=always
+ExecStartPre=-/usr/bin/docker rm {{ grafana_name_docker }} 
+ExecStart=/usr/bin/docker run --rm \
+--name {{ grafana_cont_name }} \
+-p {{ grafana_port }}:{{ grafana_port }} \
+-e "GF_SECURITY_ADMIN_USER={{ grafana_admin_user }}" \
+-e "GF_SECURITY_ADMIN_PASSWORD={{ grafana_admin_password }}" \
+-v {{ grafana_host_config_dir }}:/etc/grafana/provisioning/datasources \
+-v {{ grafana_host_data_dir }}:/etc/grafana/provisioning/dashboards \
+-v {{ grafana_host_plugins_dir }}:/var/lib/grafana/plugins \
+{{ grafana_docker_image }}
+ExecStop=/usr/bin/docker stop {{ grafana_name_docker }}
+[Install]
+WantedBy=multi-user.target

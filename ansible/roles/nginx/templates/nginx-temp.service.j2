@@ -1,0 +1,14 @@
+[Unit]
+Description=Start Nginx as systemd service
+After=docker.service
+Requires=docker.service
+[Service]
+ExecStartPre=-/usr/bin/docker rm {{ nginx_cont_name }}
+ExecStart=/usr/bin/docker run --rm \
+--name {{ nginx_cont_name }} \
+-p {{ nginx_port }}:{{ nginx_port }} \
+#-v {{ nginx_host_config_dir }}:/etc/nginx \
+{{ nginx_docker_image }}
+ExecStop=/usr/bin/docker stop {{ nginx_cont_name }}
+[Install]
+WantedBy=multi-user.target

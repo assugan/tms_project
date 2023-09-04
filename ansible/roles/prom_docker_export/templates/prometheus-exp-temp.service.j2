@@ -1,0 +1,14 @@
+[Unit]
+Description=Start Prometheus exporter as systemd service
+After=docker.service
+Requires=docker.service
+[Service]
+ExecStartPre=-/usr/bin/docker rm {{ prometheus_exp_cont_name }}
+ExecStart=/usr/bin/docker run --rm \
+-p {{ prometheus_exp_port }}:{{ prometheus_exp_port }} \
+-v /var/run/docker.sock:/var/run/docker.sock \
+--name {{ prometheus_exp_cont_name }} \
+{{ prometheus_docker_exp_image }}
+ExecStop=/usr/bin/docker stop -t 5 {{ prometheus_exp_cont_name }}
+[Install]
+WantedBy=multi-user.target

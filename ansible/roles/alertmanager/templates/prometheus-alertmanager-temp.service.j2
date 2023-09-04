@@ -1,0 +1,16 @@
+[Unit]
+Description=Start Prometheus-alertmanager as systemd service
+After=docker.service
+Requires=docker.service
+[Service]
+Restart=always
+ExecStartPre=-/usr/bin/docker rm {{ prom_alert_cont_name }}
+ExecStart=/usr/bin/docker run --rm \
+--name {{ prom_alert_cont_name }} \
+-p {{ prom_alert_port }}:{{ prom_alert_port }} \
+-e TZ=Russia/Moscow \
+-v {{ prom_alert_host_data_dir }}/:/etc/alertmanager/ \
+{{ prom_alert_image }}
+ExecStop=/usr/bin/docker stop -t 5 {{ prom_alert_cont_name }}
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,53 @@
+docker_system_packeges        : ["curl", "gnupg", "ca-certificates"]
+docker_packeges               : ["docker-ce", "docker-ce-cli", "containerd.io", "docker-buildx-plugin", "docker-compose-plugin", "python3-pip", "python3-setuptools", "docker-compose"]
+
+
+prometheus_docker_image       : "prom/prometheus:latest"
+prometheus_cont_name          : "prometheus"
+prometheus_port               : "9090"
+prometheus_host_data_dir      : "/opt/prometheus"
+
+prometheus_docker_exp_image   : "prometheusnet/docker_exporter"
+prometheus_exp_cont_name      : "prometheus_exp"
+prometheus_exp_port           : "9417"
+prometheus_exp_host_data_dir  : "/opt/prometheus-exp"
+
+prom_alert_image              : "prom/alertmanager:latest"
+prom_alert_cont_name          : "prometheus-alertmanager"
+prom_alert_port               : "9093"
+prom_alert_host_data_dir      : "/opt/prometheus-alertmanager"
+
+
+grafana_docker_image          : "grafana/grafana:latest"
+grafana_cont_name             : "grafana"
+grafana_port                  : "3000"
+grafana_admin_user            : "admin"
+grafana_admin_password        : "grafana"
+grafana_host_config_dir       : "/opt/grafana/datasources"
+grafana_host_plugins_dir      : "/opt/grafana/plugins"
+grafana_host_data_dir         : "/opt/grafana/dashboards"
+
+nginx_docker_image            : "nginx:latest"
+nginx_cont_name               : "nginx"
+nginx_port                    : "80"
+nginx_host_config_dir         : "/opt/nginx"
+
+jenkins_docker_image          : "jenkins/jenkins:latest"
+jenkins_cont_name             : "jenkins"
+jenkins_port                  : "8080"
+jenkins_host_config_dir       : "/opt/jenkins"
+jenkins_repo_url              : "deb https://pkg.jenkins.io/debian-stable binary/"
+java_version                  : "openjdk-17-jre"
+jenkins_key                   : "https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key"
+
+
+cadvisor_docker_image         : "gcr.io/cadvisor/cadvisor:v0.47.1"
+cadvisor_cont_name            : "cadvisor"
+cadvisor_port                 : "8080"
+
+blackbox_docker_image         : "prom/blackbox-exporter:latest"
+blackbox_cont_name            : "blackbox"
+blackbox_port                 : "9115"
+blackbox_host_config_dir      : "/opt/blackbox"
+
+

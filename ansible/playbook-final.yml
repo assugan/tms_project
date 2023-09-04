@@ -1,0 +1,13 @@
+---
+- name: Playbook for diplom - infrastructure
+  hosts: DESKTOP-8DKBPVK
+  become: true
+  roles:
+    - docker 
+    - jenkins
+    - grafana
+    - prometheus  
+    - prom_docker_export 
+    - cadvisor
+    - alertmanager
+    - blackbox

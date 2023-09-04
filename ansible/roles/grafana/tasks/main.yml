@@ -1,0 +1,30 @@
+- name: Pull Grafana image from docker hub
+  docker_image:
+    source: pull
+    name: "{{ grafana_docker_image }}"
+
+- name: Create directory for config files Grafana
+  file:
+    path: /opt/grafana
+    state: directory
+    mode: '0755'
+
+- name: Copy config files for Grafana
+  copy:
+    src: "files/"
+    dest: "/opt/grafana/"
+    mode: 0777
+
+- name: Copy template systemd Grafana
+  template:
+    src: grafana-temp.service.j2
+    dest: "/etc/systemd/system/grafana-docker.service"
+    owner: "root"
+    group: "root"
+
+- name: Start grafana-docker.service
+  systemd:
+    name: grafana-docker.service
+    state: started
+    enabled: yes
+    daemon_reload: true

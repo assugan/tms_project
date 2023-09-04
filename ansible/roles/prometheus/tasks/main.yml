@@ -1,0 +1,30 @@
+- name: Pull Prometheus image from docker hub
+  docker_image:
+    source: pull
+    name: "{{ prometheus_docker_image }}"
+
+- name: Create directory for config files Prometheus
+  file:
+    path: /opt/prometheus
+    state: directory
+    mode: '0755'
+
+- name: Copy config files for Prometheus
+  copy:
+    src: "files/"
+    dest: "/opt/prometheus/"
+    mode: 0777
+
+- name: Copy template systemd Prometheus
+  template:
+    src: prometheus-temp.service.j2
+    dest: "/etc/systemd/system/prometheus-docker.service"
+    owner: "root"
+    group: "root"
+
+- name: Start prometheus-docker.service
+  systemd:
+    name: prometheus-docker.service
+    state: started
+    enabled: yes
+    daemon_reload: true

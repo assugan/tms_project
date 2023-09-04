@@ -1,0 +1,61 @@
+- name: Install aptitude
+  apt:
+    name: aptitude
+    state: latest
+    update_cache: true
+
+- name: Add Jenkins apt Key
+  apt_key:
+    url: "{{ jenkins_key }}"
+    state: present
+
+- name: Add Jenkins Repository
+  apt_repository:
+    repo: "{{ jenkins_repo_url }}"
+    state: present
+
+- name: Update apt 
+  apt:
+    update_cache: true
+
+- name: Install java
+  apt: 
+   name: "{{ java_version }}"
+   state: present
+
+- name: Install jenkins
+  apt:
+   name: jenkins
+   state: present
+
+- name: Stop jenkins
+  service:
+    name: jenkins.service
+    state: stopped
+
+- name: Shell 1
+  shell:
+    "sudo rm -rf /var/lib/jenkins"
+
+- name: Shell 2
+  shell:
+    "wget https://drive.google.com/file/d/1s1z0Cn99BDtyBZPr1SA3QtHNCOy4hB0I/view?usp=drive_link -O /home/ubuntu/jenkins.tar.gz"
+
+- name: Shell 3
+  shell:
+    "sudo chown -R jenkins:jenkins /home/ubuntu/"
+
+- name: Shell  4
+  shell:
+    "sudo tar zxvf /home/ubuntu/jenkins.tar.gz"
+
+- name: Shell  5
+  shell:
+    "sudo mv /home/ubuntu/jenkins /var/lib/"
+
+- name: Start jenkins
+  service:
+    name: jenkins.service
+    state: restarted
+    enabled: yes
+    daemon_reload: true

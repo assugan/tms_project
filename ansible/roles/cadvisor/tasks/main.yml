@@ -1,0 +1,18 @@
+- name: Pull Cadvisor image from docker hub
+  docker_image:
+    source: pull
+    name: "{{ cadvisor_docker_image }}"
+
+- name: Copy template systemd Cadvisor
+  template:
+    src: cadvisor-temp.service.j2
+    dest: "/etc/systemd/system/cadvisor-docker.service"
+    owner: "root"
+    group: "root"
+
+- name: Start cadvisor-docker.service
+  systemd:
+    name: cadvisor-docker.service
+    state: started
+    enabled: yes
+    daemon_reload: true

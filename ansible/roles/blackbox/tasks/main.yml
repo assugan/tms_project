@@ -1,0 +1,30 @@
+- name: Pull Blackbox image from docker hub
+  docker_image:
+    source: pull
+    name: "{{ blackbox_docker_image }}"
+
+- name: Create directory for config files Blackbox
+  file:
+    path: /opt/blackbox
+    state: directory
+    mode: '0755'
+
+- name: Copy config files for Blackbox
+  copy:
+    src: "files/"
+    dest: "/opt/blackbox/"
+    mode: 0777
+
+- name: Copy template systemd Blackbox
+  template:
+    src: blackbox-temp.service.j2
+    dest: "/etc/systemd/system/blackbox-docker.service"
+    owner: "root"
+    group: "root"
+
+- name: Start blackbox-docker.service
+  systemd:
+    name: blackbox-docker.service
+    state: started
+    enabled: yes
+    daemon_reload: true

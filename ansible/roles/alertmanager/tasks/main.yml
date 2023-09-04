@@ -1,0 +1,30 @@
+- name: Pull alertmanager from docker hub
+  docker_image:
+    source: pull
+    name: "{{ prom_alert_image }}"
+
+- name: Create directory for config files alertmanager
+  file:
+    path: /opt/prometheus-alertmanager
+    state: directory
+    mode: '0755'
+
+- name: Copy config files for alertmanager
+  copy:
+    src: "files/"
+    dest: "/opt/prometheus-alertmanager/"
+    mode: 0777
+
+- name: Copy template systemd alertmanager
+  template:
+    src: prometheus-alertmanager-temp.service.j2
+    dest: "/etc/systemd/system/prometheus-alertmanager.service"
+    owner: "root"
+    group: "root"
+
+- name: Start prometheus-alertmanager.service
+  systemd:
+    name: prometheus-alertmanager.service
+    state: started
+    enabled: yes
+    daemon_reload: true
