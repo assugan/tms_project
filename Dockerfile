@@ -12,7 +12,7 @@ RUN apt update -y && \
 RUN cd /var/www/html
 
 # download webfiles
-RUN wget https://github.com/?????
+RUN wget https://github.com/site_card/index.html
 
 COPY ./index.html /var/www/html
 
