@@ -20,3 +20,5 @@
 Запуск происходит по команде:
 
 ansible-playbook -i hosts  playbook-final.yml 
+
+...
