@@ -39,9 +39,9 @@
     name: docker
     state: present
 
-- name: adding ubuntu to docker group
+- name: adding vagrant to docker group
   user:
-    name: ubuntu
+    name: vagrant
     groups: docker
     append: yes
 

@@ -1,6 +1,6 @@
 ---
 - name: Playbook for diplom - infrastructure
-  hosts: DESKTOP-8DKBPVK
+  hosts: prod
   become: true
   roles:
     - docker 

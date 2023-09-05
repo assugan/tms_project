@@ -43,15 +43,15 @@
 
 - name: Shell 3
   shell:
-    "sudo chown -R jenkins:jenkins /home/ubuntu/"
+    "sudo chown -R jenkins:jenkins /home/vagrant/"
 
 - name: Shell  4
   shell:
-    "sudo tar zxvf /home/ubuntu/jenkins.tar.gz"
+    "sudo tar zxvf /home/vagrant/jenkins.tar.gz"
 
 - name: Shell  5
   shell:
-    "sudo mv /home/ubuntu/jenkins /var/lib/"
+    "sudo mv /home/vagrant/jenkins /var/lib/"
 
 - name: Start jenkins
   service:

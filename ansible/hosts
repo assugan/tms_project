@@ -1,3 +1,3 @@
 [PROD_SERVER]
-DESKTOP-8DKBPVK  ansible_host=172.22.192.72  ansible_user=assugan
+prod  ansible_host=192.168.10.10  ansible_user=vagrant
 
