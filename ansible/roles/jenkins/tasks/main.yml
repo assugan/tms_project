@@ -39,7 +39,7 @@
 
 - name: Shell 2
   shell:
-    "wget https://drive.google.com/file/d/1s1z0Cn99BDtyBZPr1SA3QtHNCOy4hB0I/view?usp=drive_link -O /home/ubuntu/jenkins.tar.gz"
+    "wget https://drive.google.com/file/d/1s1z0Cn99BDtyBZPr1SA3QtHNCOy4hB0I/view?usp=drive_link -O /home/vagrant/jenkins.tar.gz"
 
 - name: Shell 3
   shell:
