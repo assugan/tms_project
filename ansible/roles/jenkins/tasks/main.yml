@@ -47,7 +47,7 @@
 
 - name: Shell  4
   shell:
-    "sudo tar zxvf /home/vagrant/jenkins.tar.gz"
+    "sudo tar xvf /home/vagrant/jenkins.tar.gz"
 
 - name: Shell  5
   shell:
