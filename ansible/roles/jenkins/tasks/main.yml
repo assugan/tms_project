@@ -39,7 +39,7 @@
 
 - name: Shell 2
   shell:
-    "wget https://drive.google.com/file/d/1s1z0Cn99BDtyBZPr1SA3QtHNCOy4hB0I/view?usp=drive_link -O /home/vagrant/jenkins.tar.gz"
+    "wget https://drive.google.com/file/d/1s1z0Cn99BDtyBZPr1SA3QtHNCOy4hB0I/view?usp=drive_link -O /home/root/jenkins.tar.gz"
 
 - name: Shell 3
   shell:
@@ -47,11 +47,11 @@
 
 - name: Shell  4
   shell:
-    "sudo tar zxvf /home/vagrant/jenkins.tar.gz"
+    "sudo tar zxvf /home/root/jenkins.tar.gz"
 
 - name: Shell  5
   shell:
-    "sudo mv /home/vagrant/jenkins /var/lib/"
+    "sudo mv /home/root/jenkins /var/lib/"
 
 - name: Start jenkins
   service:
