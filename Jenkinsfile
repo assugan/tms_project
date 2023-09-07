@@ -22,7 +22,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'curl 192.168.10.10:80'
+                sh 'curl 192.168.10.11:80'
             }
         }
         
