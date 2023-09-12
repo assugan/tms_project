@@ -1,6 +1,6 @@
 services:
   mysite:
-    image: assugan/assug-site-card:latest
+    image: my-site-card
     container_name: fun-site-card
     ports:
       - 80:80
