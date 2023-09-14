@@ -39,15 +39,15 @@
 
 - name: Shell 2
   shell:
-    "wget https://drive.google.com/file/d/1s1z0Cn99BDtyBZPr1SA3QtHNCOy4hB0I/view?usp=drive_link -O /home/vagrant/jenkins.tar.gz"
+    "wget https://drive.google.com/drive/folders/1aawduxgGj6MAIpu0_R5lI8k39DCa19LY?usp=drive_link -O /home/vagrant/jenkins"
 
 - name: Shell 3
   shell:
     "sudo chown -R jenkins:jenkins /home/vagrant/"
 
-- name: Shell  4
-  shell:
-    "sudo tar xvf /home/vagrant/jenkins.tar.gz"
+#- name: Shell  4
+#  shell:
+#    "sudo tar xvf /home/vagrant/jenkins.tar.gz"
 
 - name: Shell  5
   shell:
