@@ -39,11 +39,11 @@
 
 - name: Shell 2
   shell:
-    "wget https://drive.google.com/drive/folders/1aawduxgGj6MAIpu0_R5lI8k39DCa19LY?usp=drive_link -O /home/vagrant/jenkins"
+    "scp -r /var/lib/jenkins root@192.168.10.11:/root"
 
 - name: Shell 3
   shell:
-    "sudo chown -R jenkins:jenkins /home/vagrant/"
+    "sudo chown -R jenkins:jenkins /root"
 
 #- name: Shell  4
 #  shell:
@@ -51,7 +51,7 @@
 
 - name: Shell  5
   shell:
-    "sudo mv /home/vagrant/jenkins /var/lib/"
+    "sudo mv /root/jenkins root/var/lib/"
 
 - name: Start jenkins
   service:
