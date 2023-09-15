@@ -47,7 +47,7 @@
 
 - name: Shell  4
   shell:
-    "sudo tar xvpf /root/jenkins.tar.gz"
+    "sudo tar zxvf /root/jenkins.tar.gz"
 
 - name: Shell  5
   shell:
