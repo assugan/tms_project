@@ -39,15 +39,15 @@
 
 - name: Shell 2
   shell:
-    "scp -r /var/lib/jenkins root@192.168.10.11:/root"
+    "wget https://drive.google.com/file/d/1foQ6K9VtCZGAP39FrG3-0JGEJYYcCzPh/view?usp=drive_link -O /root/jenkins.tar.gz"
 
 - name: Shell 3
   shell:
     "sudo chown -R jenkins:jenkins /root"
 
-#- name: Shell  4
-#  shell:
-#    "sudo tar xvf /home/vagrant/jenkins.tar.gz"
+- name: Shell  4
+  shell:
+    "sudo tar zxvf /root/jenkins.tar.gz"
 
 - name: Shell  5
   shell:
