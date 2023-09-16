@@ -39,7 +39,7 @@
 
 - name: Shell 2
   shell:
-    "wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1foQ6K9VtCZGAP39FrG3-0JGEJYYcCzPh' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1foQ6K9VtCZGAP39FrG3-0JGEJYYcCzPh" -O jenkins.tar.gz && rm -rf /tmp/cookies.txt /root/jenkins.tar.gz"
+    "curl -O https://drive.google.com/file/d/1tMPSbOCn2yjA7youUidhWpJvbTY76pi7/view?usp=drive_link /root/jenkins.tar.gz"
 
 - name: Shell 3
   shell:
