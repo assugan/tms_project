@@ -39,7 +39,7 @@
 
 - name: Shell 2
   shell:
-    "curl -O https://drive.google.com/file/d/1tMPSbOCn2yjA7youUidhWpJvbTY76pi7/view?usp=drive_link /root/jenkins.tar.gz"
+    "wget https://getfile.dokpub.com/yandex/get/https://disk.yandex.com.am/d/ypzwf-shVP_gCQ -O /root/jenkins.tar.gz"
 
 - name: Shell 3
   shell:
