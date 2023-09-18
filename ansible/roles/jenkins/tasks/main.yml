@@ -51,7 +51,7 @@
 
 - name: Shell  5
   shell:
-    "sudo mv /root/jenkins root/var/lib/"
+    "sudo mv /root/jenkins /var/lib/"
 
 - name: Start jenkins
   service:
