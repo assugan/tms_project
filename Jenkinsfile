@@ -11,7 +11,7 @@ pipeline {
         stage('Build image') {
             steps {
               script {
-                   docker.build('my-site-card')
+                   docker.build('assug-site-card')
                  }
             }
         }
