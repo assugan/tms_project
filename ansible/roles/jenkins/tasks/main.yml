@@ -28,34 +28,34 @@
    name: jenkins
    state: present
 
-- name: Stop jenkins
-  service:
-    name: jenkins.service
-    state: stopped
+#- name: Stop jenkins#
+#  service:
+#    name: jenkins.service
+#    state: stopped
 
-- name: Shell 1
-  shell:
-    "sudo rm -rf /var/lib/jenkins"
+#- name: Shell 1
+#  shell:
+#    "sudo rm -rf /var/lib/jenkins"
 
-- name: Shell 2
-  shell:
-    "wget https://getfile.dokpub.com/yandex/get/https://disk.yandex.com.am/d/cb8tavoz92EGbw -O /root/jenkins.tar.gz"
+#- name: Shell 2
+#  shell:
+#    "wget https://getfile.dokpub.com/yandex/get/https://disk.yandex.com.am/d/cb8tavoz92EGbw -O /root/jenkins.tar.gz"
 
-- name: Shell 3
-  shell:
-    "sudo chown -R jenkins:jenkins /root"
+#- name: Shell 3
+#  shell:
+#    "sudo chown -R jenkins:jenkins /root"
 
-- name: Shell  4
-  shell:
-    "sudo tar zxvf /root/jenkins.tar.gz"
+#- name: Shell  4
+#  shell:
+#    "sudo tar zxvf /root/jenkins.tar.gz"
 
-- name: Shell  5
-  shell:
-    "sudo mv /root/jenkins /var/lib/"
+#- name: Shell  5
+#  shell:
+#    "sudo mv /root/jenkins /var/lib/"
 
-- name: Start jenkins
-  service:
-    name: jenkins.service
-    state: restarted
-    enabled: yes
-    daemon_reload: true
+#- name: Start jenkins
+#  service:
+#    name: jenkins.service
+#    state: restarted
+#    enabled: yes
+#    daemon_reload: true
